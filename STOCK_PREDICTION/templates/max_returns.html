@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Max Returns Tickers</title>
+</head>
+<body>
+    <h1>Tickers in Order of Max Returns</h1>
+    <ul>
+        {% for ticker in sorted_tickers %}
+            <li>{{ ticker }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

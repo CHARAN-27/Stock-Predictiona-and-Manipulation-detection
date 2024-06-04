@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock News Sentiment Analyzer</title>
+
+    <style>
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #377ba8;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        h1, h2, h3 {
+            color: #377ba8;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        input[type="text"] {
+            height: 40px;
+            font-size: 16px;
+            padding: 5px;
+            width: 200px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        .push_button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #4CAF50;
+        }
+
+        .push_button:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            margin-top: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #377ba8;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Stock News Sentiment Analyzer</h1>
+    </header>
+
+    <main>
+        <h3>Enter a Stock Ticker Symbol to See the Hourly and Daily Sentiment Scores of the Stock</h3>
+
+        <form action="sentiment" method="POST">
+            <label for="ticker">Stock Ticker Symbol:</label>
+            <input id="ticker" name="ticker" type="text" required>
+            <button type="submit" class="push_button">Analyze</button>
+        </form>
+        <p>
+            <i>Disclaimer: This platform is for stock sentiment analysis, not financial advice. Do your own research before making investment decisions. All investments carry risks</i>
+        </p>
+    </main>
+
+    <footer>
+        &copy; 2023 Stock News Sentiment Analyzer
+    </footer>
+</body>
+
+</html>

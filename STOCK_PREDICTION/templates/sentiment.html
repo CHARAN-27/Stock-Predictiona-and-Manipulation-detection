@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stock News Sentiment Analyzer</title>
+
+    <style>
+        body {
+            font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        h1 {
+            color: #377ba8;
+            text-align: center;
+            border-bottom: 2px solid #eee;
+            padding: 20px 0;
+        }
+
+        h4 {
+            color: #377ba8;
+            text-align: center;
+        }
+
+        a {
+            color: #377ba8;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .chart,
+        .chart2 {
+            margin: 20px auto;
+            max-width: 80%;
+        }
+
+        div#chart,
+        div#chart2 {
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 20px;
+        }
+
+        center {
+            display: block;
+            margin: auto;
+        }
+
+        .description {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        .push_button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #fff;
+            background-color: #4CAF50;
+        }
+
+        .push_button:hover {
+            background-color: #45a049;
+        }
+
+        table.dataframe,
+        .dataframe th,
+        .dataframe td {
+            border: none;
+            border-bottom: 1px solid #C8C8C8;
+            border-collapse: collapse;
+            text-align: left;
+            padding: 10px;
+            margin-bottom: 40px;
+            font-size: 0.9em;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Stock News Sentiment Analyzer</h1>
+    <center>
+        <form action="prediction" method="POST">
+            <label for="ticker">Enter ticker for prediction models:</label>
+            <input id="ticker" name="ticker" type="text" required>
+            <button type="submit" class="push_button">Show</button>
+        </form>
+    </center>
+    <div id="chart" class="chart"></div>
+    <div id="chart2" class="chart2"></div>
+    <br><br>
+    <!-- <center>
+        <div class="description">{{description}}</div>
+        <br><br>
+        {{ table|safe }}
+    </center> -->
+</body>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+    var graph_daily = {{graphJSON_daily | safe}};
+    Plotly.newPlot('chart', graph_daily, {});
+    var graph_hourly = {{graphJSON_hourly | safe}};
+    Plotly.plot('chart2', graph_hourly, {});
+</script>
+
+</html>
